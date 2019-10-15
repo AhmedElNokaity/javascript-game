@@ -17,21 +17,35 @@ let LIFE = 3; // PLAYER HAS 3 LIVES
 let SCORE = 0;
 const SCORE_UNIT = 10;
 let LEVEL = 1;
-const MAX_LEVEL = 5;
+const MAX_LEVEL = 1;
 let GAME_OVER = false;
 let PAUSED =false;
 let leftArrow = false;
 let rightArrow = false;
 let cSpeed=5;
+let flag=false;
 
 var seconds = 0;
 var minutes = 0;
 var timer = 0;
-var currentBestTime=localStorage.getItem("currentBestTime");
-localStorage.setItem("currentBestTime", currentBestTime);
+var currentBestTime;
 
-/*var currentBestTime;
-localStorage.setItem("currentBestTime", 3500);*/
+
+flag=localStorage.getItem("flag");
+if(!flag)
+{
+    localStorage.setItem("flag", true);
+    localStorage.setItem("currentBestTime", 3500);
+    currentBestTime=localStorage.getItem("currentBestTime");
+
+}
+else
+{
+    currentBestTime=localStorage.getItem("currentBestTime");
+  //  localStorage.setItem("currentBestTime", currentBestTime);
+
+}
+
 var timerID = undefined;
 
 
